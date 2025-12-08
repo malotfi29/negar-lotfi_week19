@@ -1,0 +1,195 @@
+.container {
+  width: 100%;
+  max-width: 1140px;
+  height: 100vh;
+  min-height: 600px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+.header {
+  background-color: var(--bgc-page);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.header svg {
+  font-size: 20px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  background-color: inherit;
+  font-family: "Vazir";
+}
+.user {
+  display: flex;
+  flex-direction: column;
+  padding: 0 25px;
+  border-right: 1px solid var(--border-color);
+}
+
+.user p{
+  font-weight: bold;
+  text-align: center;
+}
+
+.user button{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user button a{
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.addProduct {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  
+}
+.addProduct div img {
+  margin-top: 0;
+  width: 30px;
+  height: 30px;
+}
+.addProduct div {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+.addProduct h2 {
+  font-weight: 400;
+  font-size: 24px;
+}
+.addProduct button,
+.user button {
+  /* width: 100px; */
+  border: none;
+  outline: none;
+  padding:5px 10px;
+  border-radius: 10px;
+  color: var(--white);
+  background-color: var(--main-blue);
+  font-family: "Vazir";
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.addProduct button:hover,
+.user button:hover {
+  transform: scaleY(1.09);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.tableContainer {
+  height: 500px;
+  background-color: var(--bgc-page);
+  width: 100%;
+  border-radius: 16px;
+
+  border: 2px solid var(--border-color);
+  margin: 24px 0;
+  overflow-x: auto;
+  /* overflow-y: scroll; */
+}
+table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12px;
+  background-color: var(--bgc-page);
+}
+
+table thead tr {
+  background: linear-gradient(90deg, rgb(31, 95, 159), var(--main-blue));
+  color: #ffffff;
+  font-weight: 600;
+}
+table th,
+table td {
+  text-align: right;
+  padding: 12px 15px;
+}
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+  transition: background 0.2s ease;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+table tbody tr:lastchild {
+  border-bottom: none;
+}
+table tbody tr:hover {
+  background: rgb(222, 235, 253);
+}
+
+.setting {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+.setting img {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+}
+
+.tooltip{
+  position: relative;
+  cursor: pointer;
+}
+.tooltipText{
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-100%);
+  background: var(--bgc);
+  color: var(--main-blue);
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+
+}
+.tooltip:hover .tooltipText{
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    font-size: 14px;
+  }
+  .tableContainer{
+  overflow-x: hidden;
+
+  }
+  table {
+    font-size: 14px;
+  }
+}

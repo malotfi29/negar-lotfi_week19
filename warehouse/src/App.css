@@ -1,0 +1,57 @@
+@import url("/fonts.css");
+
+:root {
+  --bgc:rgba(247, 248, 248, 1);
+  --bgc-page:rgba(255, 255, 255, 1);
+  --border-color:rgba(228, 228, 228, 1);
+  --main-gray:rgba(242, 242, 242, 1);
+  --main-blue:rgba(85, 163, 240, 1);
+  --white: #ffffff;
+  --shadow-soft: rgba(179, 207, 193, 0.8);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  direction: rtl;
+  outline: none;
+}
+
+body {
+  background-color: var(--bgc);
+  margin: 2rem auto;
+  max-width: 1000px;
+  min-height: 100vh;
+  padding: 10px;
+  font-family: "Vazir";
+}
+
+.main {
+  background-color: var(--bgc);
+  border-radius: 20px;
+  box-shadow: var(--mint-dark) 0px 5px 15px;
+  overflow: hidden;
+}
+
+input{
+  padding: 11px 15px;
+  border-radius: 15px;
+  border: none;
+  background-color: var(--main-gray);
+  height: 53px;
+}
+input::placeholder{
+  color: rgba(40, 40, 40, 0.5);
+}
+.btn{
+height: 50px;
+padding: 10px;
+border-radius: 15px;
+border: none;
+}
+
+a{
+  text-decoration: none;
+}
