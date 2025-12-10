@@ -1,16 +1,16 @@
 import styles from "./AddProduct.module.css";
-import { useModal } from "../context/ModalContext";
+import { useModal } from "../../context/ModalContext";
 import { useLocation, useNavigate } from "react-router-dom";
-import Input from "./Input";
+import Input from "../../components/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { productSchema } from "../schema/productSchema";
+import { productSchema } from "../../schema/productSchema";
 import { useForm } from "react-hook-form";
-import useAddProduct from "../features/Products/useAddProduct";
+import useAddProduct from "./useAddProduct";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import useProducts from "../features/Products/useProducts";
+import useProducts from "./useProducts";
 import { useEffect } from "react";
-import useEditProduct from "../features/Products/useEditProduct";
+import useEditProduct from "./useEditProduct";
 
 function AddProduct() {
   const { isOpenAddModal, setIsOpenAddModal } = useModal();
@@ -39,7 +39,7 @@ function AddProduct() {
 
   const closeModal = () => {
     setIsOpenAddModal(false);
-    navigate("/");
+    navigate("/admin");
   };
 
   const onSubmit = (product) => {
@@ -49,12 +49,12 @@ function AddProduct() {
         {
           onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["products"] });
-            navigate("/");
+            navigate("/admin");
             setIsOpenAddModal(false);
             toast.success("کالا با موفقیت ویرایش شد");
           },
           onError: () => {
-            navigate("/");
+            navigate("/admin");
             setIsOpenAddModal(false);
             toast.error("خطایی پیش آمده");
           },
@@ -64,12 +64,12 @@ function AddProduct() {
       addProduct(product, {
         onSuccess: () => {
           queryClient.invalidateQueries({ queryKey: ["products"] });
-          navigate("/");
+          navigate("/admin");
           setIsOpenAddModal(false);
           toast.success("کالا با موفقیت اضافه شد");
         },
         onError: () => {
-          navigate("/");
+          navigate("/admin");
           setIsOpenAddModal(false);
           toast.error("خطایی پیش آمده");
         },

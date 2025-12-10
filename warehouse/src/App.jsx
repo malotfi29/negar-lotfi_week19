@@ -1,38 +1,46 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import ProductsListPage from "./pages/ProductsListPage";
 import Login from "./features/Authentication/Login";
-// import UserProvider from "./features/Authentication/UserContext";
 import ModalProvider from "./context/ModalContext";
 import { Toaster } from "react-hot-toast";
-import AddProduct from "./components/AddProduct";
-import DeleteProduct from "./components/DeleteProduct";
+import AddProduct from "./features/adminProducts/AddProduct";
+import DeleteProduct from "./features/adminProducts/DeleteProduct";
 import RegistrationPage from "./pages/RegistrationPage";
-
-
-const queryClient = new QueryClient();
+import Layout from "./components/layout";
+import ProductsProvider from "./context/productsContext";
+import AdminProductsListPage from "./pages/AdminProductsListPage";
+import UserProductsPage from "./pages/UserProductsPage";
+import MainPage from "./pages/MainPage";
+import CartProvider from "./context/CartContext";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   return (
     <>
-    
+    <CartProvider>
+
+   
+      <ProductsProvider>
         <ModalProvider>
-          <QueryClientProvider client={queryClient}>
-          <Toaster/>
-            <ReactQueryDevtools />
-            <Routes>
-              <Route path="/" element={<ProductsListPage />}>
+          <Toaster />
+          <ReactQueryDevtools />
+          <Routes>
+            <Route path="/" element={<MainPage/>}/>
+            <Route element={<Layout />}>
+              <Route path="/user" element={<UserProductsPage />} />
+              <Route path="/user/:id" element={<DetailsPage />} />
+              <Route path="/admin" element={<AdminProductsListPage />}>
                 <Route path="addProduct" element={<AddProduct />} />
                 <Route path="deleteProduct" element={<DeleteProduct />} />
               </Route>
-              <Route path="/login" element={<Login />} />
-              <Route path="/registration" element={<RegistrationPage />} />
-            </Routes>
-          </QueryClientProvider>
+            </Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/registration" element={<RegistrationPage />} />
+          </Routes>
         </ModalProvider>
-     
+      </ProductsProvider>
+      </CartProvider>
     </>
   );
 }

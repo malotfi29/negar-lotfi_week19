@@ -4,6 +4,10 @@ export function getAllProducts(page,searchName=""){
     return app.get(`/products?page=${page}&limit=8&name=${searchName}`).then(data=>data.data)
 }
 
+export function getSingleProduct(id){
+    return app.get(`/products/${id}`).then(data=>data.data)
+}
+
 export function addProduct(data){
     return app.post("/products",data).then(data=>data.data)
 }

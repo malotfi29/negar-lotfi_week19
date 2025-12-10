@@ -1,4 +1,4 @@
-import styles from "./AddProduct.module.css";
+import styles from "../features/adminProducts/AddProduct.module.css";
 
 function Input({
   type = "text",

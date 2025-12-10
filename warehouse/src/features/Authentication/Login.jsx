@@ -25,7 +25,7 @@ function Login() {
     mutate(user, {
       onSuccess: () => {
         localStorage.setItem("user",JSON.stringify(user.username))
-        navigate("/");
+        navigate("/admin");
         toast.success("خوش آمدید")
       },
       onError: () => {

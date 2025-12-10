@@ -1,7 +1,7 @@
 import styles from "./DeleteProduct.module.css"
-import { useModal } from "../context/ModalContext";
+import { useModal } from "../../context/ModalContext";
 import { useLocation, useNavigate } from "react-router-dom";
-import useDeleteProduct from "../features/Products/useDeleteProduct";
+import useDeleteProduct from "./useDeleteProduct";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
@@ -16,11 +16,11 @@ const handleDelete=()=>{
   mutate(productId,{
     onSuccess:()=>{
       queryClient.invalidateQueries({queryKey:["products"]})
-      navigate("/")
+      navigate("/admin")
       setIsOpenDeleteModal(false)
       toast.success("کالا با موفقیت حذف شد")
     },
-    onError:()=>{navigate("/")
+    onError:()=>{navigate("/admin")
       setIsOpenDeleteModal(false)
     },
   });

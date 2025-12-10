@@ -1,9 +1,10 @@
-import useProducts from "../features/Products/useProducts";
+import { useLayoutProducts } from "../context/productsContext";
+import useProducts from "../features/adminProducts/useProducts";
 import { toPersianNumbers } from "../helper/toPersionNumber";
 import styles from "./Pagination.module.css";
 
-function Pagination({ page, setPage }) {
- 
+function Pagination() {
+ const { page, setPage }=useLayoutProducts()
   const{totalPages}=useProducts()
   
   
@@ -28,7 +29,7 @@ function Pagination({ page, setPage }) {
       </button>
        <p className={page === 1 ? styles.selected : null}>{toPersianNumbers(1)}</p>
       <p className={page === 2 ? styles.selected : null}>{toPersianNumbers(2)}</p>
-      {page > 2 && page < totalPages-1 && (
+      {page > 2 && page < totalPages-1  && (
         <>
           <span>...</span>
           <p className={styles.selected}>{toPersianNumbers(page)}</p>
@@ -38,7 +39,10 @@ function Pagination({ page, setPage }) {
 {
   totalPages>2 ? <>
   <span>...</span>
-  <p className={page === totalPages-1 ? styles.selected : null}>{toPersianNumbers(totalPages-1)}</p>
+  {
+    totalPages!==3 ? <p className={page === totalPages-1 ? styles.selected : null}>{toPersianNumbers(totalPages-1)}</p> : ""
+  }
+  
       <p className={page === totalPages ? styles.selected : null}>{toPersianNumbers(totalPages)}</p> 
       
   </> : ""

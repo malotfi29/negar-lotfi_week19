@@ -3,14 +3,15 @@ import Loading from "../../components/Loading";
 import useProducts from "./useProducts";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
-import Header from "../../components/Header";
+
 import Product from "./Product";
-import Pagination from "../../components/Pagination";
-import { useEffect, useState } from "react";
+
+
+import { useLayoutProducts } from "../../context/productsContext";
 
 function ProductsList() {
-  const [page, setPage] = useState(1);
-  const [searchName, setSearchName] = useState("");
+ 
+  const{page,searchName}=useLayoutProducts()
   const { products, isPending } = useProducts(page, searchName);
 
   const { setIsOpenAddModal } = useModal();
@@ -25,7 +26,7 @@ function ProductsList() {
     <>
       <Outlet />
       <div className={styles.container}>
-        <Header searchName={searchName} setSearchName={setSearchName} />
+       
         <main>
           <div className={styles.addProduct}>
             <div>
@@ -62,9 +63,7 @@ function ProductsList() {
             )}
           </div>
         </main>
-        <footer>
-          <Pagination page={page} setPage={setPage} products={products} />
-        </footer>
+        
       </div>
     </>
   );

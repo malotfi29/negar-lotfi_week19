@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   max-width: 1140px;
-  height: 100vh;
+  /* height: 100vh; */
   min-height: 600px;
   margin: 0 auto;
   font-size: 12px;
@@ -31,14 +31,28 @@
 }
 .user {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
   padding: 0 25px;
   border-right: 1px solid var(--border-color);
+}
+
+.user .checkout{
+  color: var(--main-blue);
+  position: relative;
+ 
+}
+
+.user .checkout svg{
+  width: 34px;
+  height: 34px;
 }
 
 .user p{
   font-weight: bold;
   text-align: center;
+  color: var(--main-blue);
 }
 
 .user button{
@@ -52,6 +66,21 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.checkout span{
+  font-size: 0.9rem;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background-color: var(--main-blue);
+    color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+   right: -15px;
+   text-align: center;
+   
 }
 
 

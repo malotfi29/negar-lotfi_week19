@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    height: 1000px;
+}
+.products{
+    width: 100%;
+    height:285px ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
