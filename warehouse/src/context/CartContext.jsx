@@ -33,22 +33,17 @@ const reducer = (state, action) => {
         (item) => item.id === action.payload.id
       );
       state.selectedItems[increaseIndex].selectedQuantity++;
-    console.log( state.selectedItems[increaseIndex]);
-    
-     
+
       return {
         ...state,
         ...sumProducts(state.selectedItems),
       };
-     
-      
-      
     }
     case "DECREASE": {
       const decreaseIndex = state.selectedItems.findIndex(
         (item) => item.id === action.payload.id
       );
-      
+
       state.selectedItems[decreaseIndex].selectedQuantity--;
       return {
         ...state,

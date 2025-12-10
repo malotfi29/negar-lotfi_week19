@@ -3,7 +3,7 @@
 :root {
   --bgc:rgba(247, 248, 248, 1);
   --bgc-page:rgba(255, 255, 255, 1);
-  --border-color:rgba(228, 228, 228, 1);
+  --border-color:rgb(189, 184, 184);
   --main-gray:rgba(242, 242, 242, 1);
   --main-blue:rgba(85, 163, 240, 1);
   --white: #ffffff;

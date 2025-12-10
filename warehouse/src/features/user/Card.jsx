@@ -26,7 +26,7 @@ function Card({ data }) {
     <div className={styles.card}>
       <FcRemoveImage className={styles.img}/>
       <h3>{shortText(name)}</h3>
-      <p>{toPersianNumbersWithComma(price)} $</p>
+      <p>{toPersianNumbersWithComma(price)} تومان</p>
       <div className={styles.actions}>
         <Link to={`/user/${id}`}>
           <TbListDetails />

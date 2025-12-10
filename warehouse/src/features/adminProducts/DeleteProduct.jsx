@@ -29,7 +29,7 @@ const handleDelete=()=>{
 
   const closeModal = () => {
     setIsOpenDeleteModal(false);
-    navigate("/");
+    navigate("/admin");
   };
 
   if(!isOpenDeleteModal) return null

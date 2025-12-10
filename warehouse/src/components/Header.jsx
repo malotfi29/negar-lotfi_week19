@@ -9,6 +9,8 @@ import Cookies from "js-cookie";
 import { useLayoutProducts } from "../context/productsContext";
 import { useCart } from "../context/CartContext";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
+import { GoHome } from "react-icons/go";
+import { toPersianNumbers } from "../helper/toPersionNumber";
 
 function Header() {
   const [state] = useCart();
@@ -43,15 +45,21 @@ function Header() {
         />
       </div>
       <div className={styles.user}>
+        
+      
+       
         {token ? (
-          <p>{user}</p>
+          <p> سلام، {user}</p>
         ) : (
+          <>
+          <Link to="/"><GoHome/></Link>
           <Link to="/checkout">
             <div className={styles.checkout}>
               <PiShoppingCartSimpleBold />
-              {!!state.itemsCounter && <span>{state.itemsCounter}</span>}
+              {!!state.itemsCounter && <span>{toPersianNumbers(state.itemsCounter)}</span>}
             </div>
           </Link>
+          </>
         )}
         {token ? (
           <>

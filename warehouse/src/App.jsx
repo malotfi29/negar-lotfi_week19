@@ -14,6 +14,7 @@ import UserProductsPage from "./pages/UserProductsPage";
 import MainPage from "./pages/MainPage";
 import CartProvider from "./context/CartContext";
 import DetailsPage from "./pages/DetailsPage";
+import CheckoutPage from "./pages/CheckoutPage"
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
             <Route path="/" element={<MainPage/>}/>
             <Route element={<Layout />}>
               <Route path="/user" element={<UserProductsPage />} />
-              <Route path="/user/:id" element={<DetailsPage />} />
+             
               <Route path="/admin" element={<AdminProductsListPage />}>
                 <Route path="addProduct" element={<AddProduct />} />
                 <Route path="deleteProduct" element={<DeleteProduct />} />
@@ -37,6 +38,8 @@ function App() {
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/registration" element={<RegistrationPage />} />
+            <Route path="/user/:id" element={<DetailsPage />} />
+            <Route path="/checkout" element={<CheckoutPage/>}/>
           </Routes>
         </ModalProvider>
       </ProductsProvider>

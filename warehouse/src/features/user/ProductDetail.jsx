@@ -2,7 +2,6 @@ import { Link, useParams } from "react-router-dom";
 import { FcRemoveImage } from "react-icons/fc";
 import Loading from "../../components/Loading";
 import styles from "./ProductDetail.module.css";
-import { SiOpenproject } from "react-icons/si";
 import { IoMdPricetag } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 import useProduct from "./useProduct";
@@ -14,6 +13,7 @@ function ProductDetail() {
 
   return (
     <>
+    <h2>فروشگاه اینترنتی نگار/ جزییات محصول</h2>
       {isPending ? (
         <Loading />
       ) : (
